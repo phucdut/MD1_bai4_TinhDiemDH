@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính điểm đại học</title>
+</head>
+<body>
+<h2>Tính điểm đại học khối D</h2>
+<table>
+    <tr>
+        <td>Toán</td>
+        <td><input id="Toán" type = "text" name="toán" size="20"/></td>
+    </tr>
+
+    <tr>
+        <td>Văn</td>
+        <td><input id="Văn" type = "text" name="văn" size="20"/></td>
+    </tr>
+    <tr>
+        <td>Anh</td>
+        <td><input id="Anh" type = "text" name="anh" size="20"/></td>
+    </tr>
+    <tr>
+        <td>Khu vực</td>
+        <td>
+            <select id="address" >
+                <option value="KV1">KV1</option>
+                <option value="KV2">KV2</option>
+                <option value="KV2-NT">KV2-NT</option>
+                <option value="KV3">KV3</option>
+            </select>
+        </td>
+    </tr>
+</table>
+<p><input type = "button" id="btn" name="btSubmit" value="Tính điểm"/></p>
+<p id=p1></p>
+</body>
+</html>
+<script>
+    let math = document.getElementById('Toán'),
+        literature = document.getElementById('Văn'),
+        english = document.getElementById('Anh'),
+
+        display = document.getElementById('p1');
+    document.getElementById('btn').onclick = function() {
+        let sum = +(Toán.value) + +(Văn.value) + +(Anh.value);
+        let giaTri = document.getElementById('address').value,
+            kv1 = sum + 0.75,
+            kv2 = sum + 0.25,
+            kv2_NT = sum + 0.5,
+            kv3 = sum;
+        let text = 'Tổng điểm thi khối D của bạn là: ';
+        switch (giaTri){
+            case 'KV1':
+                display.innerHTML = `${text} ${kv1}`;
+                break;
+            case 'KV2':
+                display.innerHTML = `${text} ${kv2}`;
+                break;
+            case 'KV2-NT':
+                display.innerHTML = `${text} ${kv2_NT}`;
+                break;
+            case 'KV3':
+                display.innerHTML = `${text} ${kv3}`;
+                break;
+        }
+
+    }
+</script>
